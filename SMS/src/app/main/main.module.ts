@@ -4,10 +4,12 @@ import { MainComponent } from './main.component';
 import {mainRoutes} from './main.routes';
 import { Routes, RouterModule } from '@angular/router';
 import {ProductModule} from './product/product.module';
+
 @NgModule({
   declarations: [MainComponent],
   imports: [
     CommonModule,
+    ProductModule,
     RouterModule.forChild(mainRoutes),
   ]
 })

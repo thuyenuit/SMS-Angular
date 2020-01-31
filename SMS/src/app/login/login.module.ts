@@ -2,8 +2,9 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { LoginComponent } from './login.component';
 import { Routes, RouterModule } from '@angular/router';
+import {Title} from "@angular/platform-browser";;
 
-export const routes: Routes = [
+const routes: Routes = [
   { path: '', component: LoginComponent }
 ]
 
@@ -14,6 +15,11 @@ export const routes: Routes = [
     RouterModule.forChild(routes)
   ]
 })
-export class LoginModule { }
+
+export class LoginModule {
+  constructor(private titleService:Title) {
+    this.titleService.setTitle("Login SMS");
+  }
+ }
 
 

@@ -28,9 +28,19 @@
               "src/assets"
             ],
             "styles": [
-              "src/styles.scss"
+              "src/styles.scss",
+              "src/assets/css/custom.css"      
             ],
-            "scripts": []
+            "scripts": [
+              "./node_modules/jquery/dist/jquery.min.js",
+              "./node_modules/poper/dist/poper.js",
+              "./node_modules/bootstrap/dist/js/bootstrap.min.js",
+              "./node_modules/jquery-slimscroll/jquery.slimscroll.min.js",
+              "./node_modules/waves/dist/waves.min.js",
+              "./node_modules/sticky-kit/dist/sticky-kit.min.js",
+              "src/assets/js/sidebarmenu.js",
+              "src/assets/js/custom.min.js"
+            ]
           },
           "configurations": {
             "production": {
@@ -93,9 +103,20 @@
               "src/assets"
             ],
             "styles": [
-              "src/styles.scss"
+              "src/styles.scss",
+              "src/assets/css/custom.css",
+              "./node_modules/font-awesome/css/font-awesome.css"   
             ],
-            "scripts": []
+            "scripts": [
+              "./node_modules/jquery/dist/jquery.min.js",
+              "./node_modules/poper/dist/poper.js",
+              "./node_modules/bootstrap/dist/js/bootstrap.min.js",
+              "./node_modules/jquery-slimscroll/jquery.slimscroll.min.js",
+              "./node_modules/waves/dist/waves.min.js",
+              "./node_modules/sticky-kit/dist/sticky-kit.min.js",
+              "src/assets/js/sidebarmenu.js",
+              "src/assets/js/custom.min.js"
+            ]
           }
         },
         "lint": {
