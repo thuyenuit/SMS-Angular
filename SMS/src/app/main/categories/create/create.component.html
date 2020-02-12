@@ -1,0 +1,98 @@
+<div class="content-wrapper">
+    <section class="content-header">
+        <div class="container-fluid">
+            <div class="row mb-2">
+                <div class="col-sm-6">
+                    <ol class="breadcrumb float-sm-left">
+                        <li class="breadcrumb-item"><a href="/main/home">Dashboard</a></li>
+                        <li class="breadcrumb-item"><a href="/main/categories">Categories</a></li>
+                        <li class="breadcrumb-item active">Create</li>
+                    </ol>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="content">
+        <div class="container-fluid">
+            <div class="card card-default">
+                <form class="form-horizontal" [formGroup]="_formGroup" (ngSubmit)="onSubmit()">
+                    <div class="card-header">
+                        <h3 class="card-title">Create category</h3>
+                        <div class="card-tools">
+                            <button type="button" class="btn btn-tool" data-card-widget="collapse"><i class="fas fa-minus"></i></button>
+                        </div>
+                    </div>
+
+                    <div class="card-body" style="display: block;">
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label for="CategoryName">Name</label>
+                                    <span class="require-field"> *</span>
+                                    <input (input)="getAlias()" [ngClass]="getValidateClass(CategoryName.errors, CategoryName.dirty, CategoryName.touched)" required type="text" class="form-control" formControlName="CategoryName" name="CategoryName" id="CategoryName" placeholder="Enter name">
+                                    <div class="text-danger" *ngIf="CategoryName.errors && (CategoryName.dirty || CategoryName.touched)">
+                                        <p *ngIf="CategoryName.errors.required">Name is required</p>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label for="Alias">Alias</label>
+                                    <span class="require-field"> *</span>
+                                    <input [ngClass]="getValidateClass(Alias.errors, Alias.dirty, Alias.touched)" required type="text" class="form-control" formControlName="Alias" name="Alias" id="Alias" placeholder="Enter alias">
+                                    <div class="text-danger" *ngIf="Alias.errors && (Alias.dirty || Alias.touched)">
+                                        <p *ngIf="Alias.errors.required">Alias is required</p>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label for="Sequence">Sequence</label>
+                                    <span class="require-field"> *</span>
+                                    <input [ngClass]="getValidateClass(Sequence.errors, Sequence.dirty, Sequence.touched)" required type="text" class="form-control" formControlName="Sequence" name="Sequence" id="Sequence" placeholder="Enter sequence">
+                                    <div class="text-danger" *ngIf="Sequence.errors && (Sequence.dirty || Sequence.touched)">
+                                        <p *ngIf="Sequence.errors.required">Sequence is required</p>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="col-md-6">
+                                <div class="form-group" style="margin-top: 4px;">
+                                    <div class="icheck-primary d-inline">
+                                        <input type="checkbox" id="HomeFlag" name="HomeFlag" formControlName="HomeFlag">
+                                        <label for="HomeFlag">
+                                          Home flag
+                                        </label>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="col-md-12">
+                                <div class="form-group">
+                                    <label for="MetaKeyword">Meta keyword (This field use for SEO)</label>
+                                    <input type="text" class="form-control" formControlName="MetaKeyword" name="MetaKeyword" id="MetaKeyword" placeholder="Enter meta keyword">
+                                </div>
+                            </div>
+
+                            <div class="col-md-12">
+                                <div class="form-group">
+                                    <label for="MetaDescription">Meta description (This field use for SEO)</label>
+                                    <input type="text" class="form-control" formControlName="MetaDescription" name="MetaDescription" id="MetaDescription" placeholder="Enter meta description">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="card-footer" style="display: block; text-align: center;">
+                        <button [disabled]="!_formGroup.valid" type="submit" class="btn btn-sm btn-primary">Save</button>
+                        <button [disabled]="!_formGroup.valid" type="submit" class="btn btn-sm btn-primary m-l-5">Save & continue</button>
+                        <button (click)="back()" type="button" class="btn btn-sm btn-primary m-l-5">Back</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </section>
+</div>

@@ -1,0 +1,65 @@
+<div class="content-wrapper">
+    <section class="content-header">
+        <div class="container-fluid">
+            <div class="row mb-2">
+                <div class="col-sm-6">
+                    <ol class="breadcrumb float-sm-left">
+                        <li class="breadcrumb-item"><a href="/main/home">Dashboard</a></li>
+                        <li class="breadcrumb-item active">Categories</li>
+                    </ol>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="content">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="card">
+                        <div class="card-header">
+                            <h3 class="card-title">Categories</h3>
+                        </div>
+                        <!-- /.card-header -->
+                        <div class="card-body p-15">
+                            <div class="p-b-15">
+                                <div class="">
+                                    <button (click)="onCreate()" type="button" class="btn btn-sm btn-primary">Create</button>
+                                    <button type="button" class="btn btn-sm btn-primary m-l-5">Export</button>
+                                </div>
+                            </div>
+                            <table class="table table-bordered">
+                                <thead>
+                                    <tr>
+                                        <th style="width: 10%">#</th>
+                                        <th style="width: 35%">Name</th>
+                                        <th style="width: 35%">Alias</th>
+                                        <th style="width: 20%">Action</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr *ngFor="let item of categories;index as i">
+                                        <td>{{(i + 1)}}</td>
+                                        <td>{{item.CategoryName}}</td>
+                                        <td>{{item.Alias}}</td>
+                                        <td>
+                                            <a href="http://23.101.27.224:8080/clubs/1/edit" class="btn btn-circle btn-info ml-1">
+                                                <i class="fas fa-pencil-alt"></i>
+                                            </a>
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                        <!-- /.card-body -->
+                        <div class="card-footer clearfix">
+                            <pagination [boundaryLinks]="true" [itemsPerPage]="_pageSize" [totalItems]="_totalItems" [(ngModel)]="_pageIndex" (pageChanged)="pageChanged($event)" previousText="&lsaquo;" nextText="&rsaquo;" firstText="&laquo;" lastText="&raquo;">
+                            </pagination>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- /.row -->
+        </div>
+    </section>
+</div>
