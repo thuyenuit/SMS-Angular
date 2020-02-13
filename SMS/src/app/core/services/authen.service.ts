@@ -60,11 +60,11 @@ export class AuthenService {
   }
 
   getLoginUser(): LoginUser {
-    let user:LoginUser = new LoginUser('null','null', 'null', 'null');
+    let user:LoginUser = new LoginUser('','','', '', '');
     if(this.isAuthenticated && localStorage.getItem(SystemConstants.CURRENT_USER) != null)
     {
         var userData = JSON.parse(localStorage.getItem(SystemConstants.CURRENT_USER));
-        user = new LoginUser(userData.access_token, userData.username, userData.fullname, userData.email);   
+        user = new LoginUser(userData.access_token, userData.userid, userData.username, userData.fullname, userData.email);   
     } 
     return user;
   }

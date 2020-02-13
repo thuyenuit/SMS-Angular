@@ -3,6 +3,9 @@ import { DataService } from '../../../core/services/data.service';
 import { Validators, FormBuilder, FormGroup, FormControl } from '@angular/forms';
 import { UtilityService } from '../../../core/services/utility.service';
 import { NotificationService } from '../../../core/services/notification.service';
+import { UriConstants } from '../../../core/common/uri.constants';
+import { Router } from '@angular/router';
+
 @Component({
   selector: 'app-create',
   templateUrl: './create.component.html',
@@ -24,7 +27,8 @@ export class CreateComponent implements OnInit {
   constructor(private _dataService: DataService,
     private formBuilder: FormBuilder,
     private _utilityService: UtilityService,
-    private _notificationService: NotificationService) { }
+    private _notificationService: NotificationService,
+    private _router: Router) { }
 
   ngOnInit() {
     this.createFormControls();
@@ -86,6 +90,7 @@ export class CreateComponent implements OnInit {
         if(value.MsgType == 'success')
         {
           this._notificationService.successMessage(value.Message);
+          this.onback();
         }
         else
         {
@@ -101,27 +106,8 @@ export class CreateComponent implements OnInit {
     //this.registerForm.reset();
   }
 
-  save() {
-    let uri = '/api/category/create';
-    this._dataService.post(uri).subscribe((value: any) => {
-      if (value != null && value.ResponseCode == 200) {
-
-        if (!this._saveAndContinue) {
-          this.back();
-        }
-      }
-    }, (error) => {
-      this._dataService.handleError(error);
-    });
-  }
-
-  saveAndContinue() {
-    this._saveAndContinue = true;
-    this.save();
-  }
-
-  back() {
-
+  onback() {
+    this._router.navigate([UriConstants.CATEGORIES]);
   }
 
 }

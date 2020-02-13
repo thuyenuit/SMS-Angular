@@ -88,8 +88,7 @@
 
                     <div class="card-footer" style="display: block; text-align: center;">
                         <button [disabled]="!_formGroup.valid" type="submit" class="btn btn-sm btn-primary">Save</button>
-                        <button [disabled]="!_formGroup.valid" type="submit" class="btn btn-sm btn-primary m-l-5">Save & continue</button>
-                        <button (click)="back()" type="button" class="btn btn-sm btn-primary m-l-5">Back</button>
+                        <button (click)="onback()" type="button" class="btn btn-sm btn-primary m-l-5">Back</button>
                     </div>
                 </form>
             </div>

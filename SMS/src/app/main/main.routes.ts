@@ -10,10 +10,11 @@ export const mainRoutes: Routes = [
 
   {
     path: '', component: MainComponent, children: [
-      { path: '', redirectTo: 'home', pathMatch: 'full' },
-      { path: 'home', loadChildren: './home/home.module#HomeModule' },
+      { path: '', redirectTo: 'dashboard', pathMatch: 'full' },
+      { path: 'dashboard', loadChildren: './home/home.module#HomeModule' },
       { path: 'categories', loadChildren: './categories/categories.module#CategoriesModule' },  
-      { path: 'products', loadChildren: './product/product.module#ProductModule' },  
+      { path: 'products', loadChildren: './product/product.module#ProductModule' }, 
+      { path: 'product-categories', loadChildren: './product-categories/product-categories.module#ProductCategoriesModule' },  
       { path: '**',loadChildren: './notfound/notfound.module#NotfoundModule'}
     ]
   }
